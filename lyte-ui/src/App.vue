@@ -40,18 +40,21 @@
     </v-navigation-drawer>
 
     <v-main>
-      Hello World!
+      <data-table />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import DataTable from './components/core/DataTable.vue';
 
 export default {
+  components: { DataTable },
   name: 'App',
   data: () => ({
     drawer: false,
-    group: null
+    group: null,
+    
   })
 };
 </script>
