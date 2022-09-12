@@ -13,7 +13,7 @@
         </v-card-title>
         <v-data-table
           :headers="headers"
-          :items="orders"
+          :items="items"
           :search="search"
         ></v-data-table>
       </v-card>
@@ -22,18 +22,16 @@
 <script>
 
 export default {
-    name: 'DataTable',
+    name: 'OrderTable',
     data: () => ({
         search: '',
         headers: [
-            { text: 'Order Number', value: 'order_number' },
-            { text: 'Customer Name', value: 'customer_name' }
+          { text: 'Order Number', value: 'order_number' },
+          { text: 'Customer Name', value: 'customer_name' }
         ],
-        orders: [
-            {
-                order_number: 'ABC123',
-                customer_name: 'Ashley Farley'
-            }
+        items: [
+          { order_number: 'ABC123', customer_name: 'Justin Farley' },
+          { order_number: 'DEF456', customer_name: 'Ashley Farley' }
         ]
     })
 }

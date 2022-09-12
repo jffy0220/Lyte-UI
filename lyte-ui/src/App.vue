@@ -40,21 +40,20 @@
     </v-navigation-drawer>
 
     <v-main>
-      <data-table />
+      <order-table />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import DataTable from './components/core/DataTable.vue';
+import OrderTable from './components/Orders/Order-Table.vue';
 
 export default {
-  components: { DataTable },
+  components: { OrderTable },
   name: 'App',
   data: () => ({
     drawer: false,
-    group: null,
-    
+    group: null
   })
 };
 </script>
