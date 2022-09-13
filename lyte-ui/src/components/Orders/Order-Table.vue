@@ -10,12 +10,18 @@
             single-line
             hide-details
           ></v-text-field>
+          <v-btn
+            color="primary"
+            dark
+            class="mb-2"
+          >New Order</v-btn>
         </v-card-title>
         <v-data-table
           :headers="headers"
           :items="items"
           :search="search"
-        ></v-data-table>
+        >
+        </v-data-table>
       </v-card>
 </template>
 

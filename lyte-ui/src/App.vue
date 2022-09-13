@@ -40,16 +40,43 @@
     </v-navigation-drawer>
 
     <v-main>
-      <order-table />
+      
+      <v-card class="d-flex mb-6" flat tile>
+        <v-card class="pa-2" tile outline>
+          <order-metric-list />
+        </v-card>
+        <v-card class="pa-2 align-self-start" outline tile>
+          <order-table />
+        </v-card>
+        <v-card class="pa-2" outlined tile>
+          <order-chat-widget />
+        </v-card>
+      </v-card>
+      <v-card class="d-flex mb-6" flat tile>
+        <v-card class="pa-2" tile outline>
+          <order-navigation-menu />
+        </v-card>
+        <v-card class="pa-2 align-self-start" outline tile>
+          <order-basic-metric-widget />
+        </v-card>
+        <v-card class="pa-2" tile outline>
+          <order-processing-widget />
+        </v-card>
+      </v-card>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import OrderBasicMetricWidget from './components/Orders/Order-Basic-Metric-Widget.vue';
+import OrderMetricList from './components/Orders/Order-Metric-List.vue';
+import OrderNavigationMenu from './components/Orders/Order-Navigation-Menu.vue';
 import OrderTable from './components/Orders/Order-Table.vue';
+import OrderChatWidget from './components/Orders/OrderChatWidget.vue';
+import OrderProcessingWidget from './components/Orders/OrderProcessingWidget.vue';
 
 export default {
-  components: { OrderTable },
+  components: { OrderTable, OrderMetricList, OrderNavigationMenu, OrderChatWidget, OrderBasicMetricWidget, OrderProcessingWidget },
   name: 'App',
   data: () => ({
     drawer: false,
