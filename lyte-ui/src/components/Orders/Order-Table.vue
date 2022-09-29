@@ -10,11 +10,31 @@
             single-line
             hide-details
           ></v-text-field>
-          <v-btn
-            color="primary"
-            dark
-            class="mb-2"
-          >New Order</v-btn>
+            <v-dialog
+              v-model="dialog"
+              fullscreen
+              hide-overlay
+              transition="dialog-bottom-transition"
+          >
+              <template v-slot:activator="{ on, attrs }">
+                  <v-btn color="primary" dark v-bind="attrs" v-on="on">Create New Order</v-btn>
+              </template>
+              <v-card>
+                  <v-toolbar dark color="primary">
+                      <v-btn icon dark @click="dialog = false">
+                          <v-icon> mdi-close</v-icon>
+                      </v-btn>
+                      <v-toolbar-title>Settings</v-toolbar-title>
+                      <v-spacer></v-spacer>
+                      <v-toolbar-items>
+                          <v-btn dark text @click="dialog = false">
+                              Create Order
+                          </v-btn>
+                      </v-toolbar-items>
+                  </v-toolbar>
+                  Hello World!
+              </v-card>
+          </v-dialog>
         </v-card-title>
         <v-data-table
           :headers="headers"
@@ -22,15 +42,19 @@
           :search="search"
         >
         </v-data-table>
+        
       </v-card>
 </template>
 
 <script>
 
+
 export default {
+  components: {  },
     name: 'OrderTable',
     data: () => ({
         search: '',
+        dialog: false,
         headers: [
           { text: 'Order Number', value: 'order_number' },
           { text: 'First Name', value: 'customer_first_name' },
